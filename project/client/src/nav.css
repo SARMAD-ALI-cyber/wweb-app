@@ -1,0 +1,27 @@
+.cart {
+    height: 30px;
+    margin-left: 200px;
+  }
+  
+  .cart1 {
+    height: 30px;
+  }
+  
+  .location {
+    display: flex;
+    margin-left: 200px;
+    margin-right: 500px;
+  }
+  
+  .location1 {
+    margin-left: 10px;
+  }
+  
+  .name {
+    margin-left: auto;
+  }
+  
+  .logo1 {
+    height: 120px;
+    width: 180px;
+  }

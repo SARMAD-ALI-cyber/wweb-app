@@ -1,0 +1,266 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 100px;
+  height: 50px;
+}
+
+.brand-name {
+  font-size: 32px;
+  font-weight: bold;
+  color: #FFC72C;
+  margin-left: 10px;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.login-btn, .signup-btn {
+  border: 1px solid #FFC72C;
+  color: #FFC72C;
+  background-color: transparent;
+  padding: 5px 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.signup-btn {
+  background-color: #FFC72C;
+  color: #fff;
+}
+
+.language-selector {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.language-selector img {
+  margin: 0 5px;
+}
+
+
+
+.card {
+  box-sizing: border-box;
+  width: 600px;
+  height: 350px;
+  background: white;
+  border: 1px solid white;
+  box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(6px);
+  border-radius: 17px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.5s;
+  display: flex;
+  align-items: left;
+  justify-content: center;
+  user-select: none;
+  font-weight: bolder;
+  color: black;
+  margin-top: -10%;
+  margin-left: 16rem;
+  padding: 1rem;
+}
+
+.card:hover {
+  border: 1px solid black;
+  transform: scale(1.05);
+}
+
+.card:active {
+  transform: scale(0.95) rotateZ(1.7deg);
+}
+
+#homeVendor{
+  overflow: hidden;
+}
+
+.homeVendor {  
+  margin-top:-20%;
+  margin-bottom:-25%;
+} 
+
+#getStarted {
+  background-color: #FFC72C;
+  color: black;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 40%;
+  font-weight: bold;
+}
+
+.cities{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-left: -17rem;
+}
+
+.cityCard {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 14px;
+    z-index: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.bg {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 300px;
+    height: 350px;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(24px);
+    border-radius: 10px;
+    overflow: hidden;
+    outline: 2px solid white;
+  }
+
+.blob {
+    position: absolute;
+    z-index:1;
+    top: 50%;
+    left: 50%;
+    width: 310px;
+    height: 350px;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 1;
+    filter: blur(12px);
+    animation: blob-bounce 5s infinite ease;
+}
+  
+@keyframes blob-bounce {
+    0% {
+      transform: translate(-100%, -100%) translate3d(0, 0, 0);
+    }
+  
+    25% {
+      transform: translate(-100%, -100%) translate3d(100%, 0, 0);
+    }
+  
+    50% {
+      transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
+    }
+  
+    75% {
+      transform: translate(-100%, -100%) translate3d(0, 100%, 0);
+    }
+  
+    100% {
+      transform: translate(-100%, -100%) translate3d(0, 0, 0);
+    }
+}
+
+.cityName {
+    z-index: 3;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 15px;
+}
+
+.bg{
+  margin-top: -2rem;
+}
+.citiesImages{
+  margin-left: -13rem;
+}
+
+#foodAndGroceries {
+  overflow: hidden;
+}
+
+footer {
+  background-color: white;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-top {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.footer-top .footer-countries a {
+  color: #6c6c6c;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer-middle {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 150px;
+  margin: 10px;
+}
+
+.footer-column p,
+.footer-column a {
+  color: #DA291C;
+  text-decoration: none;
+  display: block;
+  margin: 5px 0;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.footer-logo img {
+  margin-right: 10px;
+}
+
+.footer-social a {
+  margin: 0 5px;
+}
+

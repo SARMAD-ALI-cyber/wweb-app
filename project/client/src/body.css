@@ -1,0 +1,14 @@
+.card1{
+    
+    background-color: black;
+}
+.position{
+    position:absolute;
+    left:500px;
+}
+.placement{
+    display:flex;
+    justify-content: space-between; 
+
+
+}

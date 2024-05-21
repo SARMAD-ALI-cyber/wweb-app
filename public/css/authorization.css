@@ -1,0 +1,126 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: white;
+    flex-direction: column;
+    margin-top: -80px;
+}
+
+.logo {
+    margin-top: 4rem;
+    mix-blend-mode: multiply;
+}
+
+
+#mainTitle{
+    color: #DA291C;
+    padding-bottom: 10px;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: black;
+    
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 0.5px solid #FFC72C;
+    border-radius: 5px;
+    
+    outline: none;
+}
+
+input:focus {
+    border-color: #FFC72C; 
+    border-width: 2px;
+}
+
+#loginForm {
+    border: 2px solid #FFC72C;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    border-width: 2px;
+    display: inline-block;
+}
+
+
+#passAndForgetPass{
+    padding-top: 10px;
+    display: flex;
+}
+
+#loginButton {
+    background-color: #FFC72C;
+    color: black;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+}
+
+#registration{
+    padding-top: 10px;
+    display: flex;
+}
+
+#createAccount {
+    margin-left: 10px;
+    color: #1971c2;
+    text-decoration: none;
+    cursor:pointer;
+}
+
+#forgotPassword {
+    margin-left: 98px;
+    color: #1971c2;
+    text-decoration: none;
+    cursor:pointer;
+}
+
+
+#signupForm {
+    border: 1px solid #FFC72C;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    border-width: 2px;
+    display: none;
+}
+
+
+#signupButton {
+    background-color: #FFC72C;
+    color: black;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+}
+
+#signingin{
+    padding-top: 10px;
+    display: flex;
+}
+
+#signinginlink {
+    margin-left: 5px;
+    color: #1971c2;
+    text-decoration: none;
+    cursor:pointer;
+}

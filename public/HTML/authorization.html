@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="css/authorization.css" />
+  </head>
+  <body>
+    <img width="512" height="224" src="img/logo.png" alt="logo" class="logo" />
+
+    <div id="mainTitle">
+      <p>Cheetah</p>
+    </div>
+
+    <form id="loginForm">
+      <div id="inputs">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required />
+
+        <div id="passAndForgetPass">
+          <label id="passwordLabel" for="passwordLabel">Password</label>
+          <a id="forgotPassword" href="https://www.example.com" target="_blank"
+            >Forgot Password?</a
+          >
+        </div>
+        <input type="password" id="password" name="password" required />
+        <p id="password-incorrect-message"></p>
+      </div>
+
+      <button type="button" id="loginButton" onclick="validateLogin()">
+        Sign in
+      </button>
+
+      <div id="registration">
+        <label for="createAccount">New to cheetah?</label>
+        <a id="createAccount" href="javascript:showSignupForm()"
+          >Create an account</a
+        >
+      </div>
+    </form>
+
+    <form id="signupForm">
+      <div id="signupInputs">
+        <label for="signupEmail">Email</label>
+        <input type="email" id="signupEmail" name="signupEmail" required />
+        <label for="signupUsername">Username</label>
+        <input type="text" id="signupUsername" name="signupUsername" required />
+        <label for="signupPassword">Password</label>
+        <input
+          type="password"
+          id="signupPassword"
+          name="signupPassword"
+          required
+        />
+        <label for="signupConfirmPassword">Confirm Password</label>
+        <input
+          type="password"
+          id="signupConfirmPassword"
+          name="signupConfirmPassword"
+          required
+        />
+        <p id="password-strength-message"></p>
+      </div>
+      <button type="button" id="signupButton" onclick="signup()">
+        Register
+      </button>
+      <div id="signingin">
+        <label for="signinginlink">Already have an account?</label>
+        <a id="signinginlink" href="javascript:showLoginForm()">login</a>
+      </div>
+    </form>
+
+    <script src="../js/authorization.js"></script>
+  </body>
+</html>

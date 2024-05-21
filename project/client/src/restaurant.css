@@ -1,0 +1,16 @@
+.pic2{
+    height:250px;
+    width:300px;
+    position: absolute;
+    left:1200px;
+    bottom:80px;
+}
+.placement{
+    height:300px;
+}
+
+.Placement3{
+    display: flex;
+    flex-wrap: wrap;
+
+}

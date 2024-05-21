@@ -1,0 +1,39 @@
+.card-container {
+    display: flex; /* Display children inline */
+    justify-content: center; /* Spacing between cards */
+  }
+  
+  .Card {
+     z-index:0
+     
+  }
+  .custom-arrow-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    
+    background-color: yellow;
+    height:50px;
+    border-radius:80%;
+    
+   
+   
+  }
+.custom-arrow-left{
+    position:absolute;
+    background-color: yellow;
+    transform: translateY(-50%);
+    top:50%;
+    left:97%;
+    height:50px;
+    border-radius:80%;
+}
+  
+  .slick-prev {
+    left: 10px; /* Adjust the positioning as needed */
+  }
+  
+  .slick-next {
+    right: 10px; /* Adjust the positioning as needed */
+  }
