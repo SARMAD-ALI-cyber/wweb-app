@@ -56,7 +56,10 @@ const martSchema = new mongoose.Schema({
     image:{
         type:String,
         required:false
-    }
+    },
+    Type:{type:String,
+    required:true
+}
 })
 const restaurantSchema = new mongoose.Schema({
     userName:{
@@ -76,6 +79,10 @@ const restaurantSchema = new mongoose.Schema({
         required:true
     },
     image:{
+        type:String,
+        required:true
+    },
+    Type:{
         type:String,
         required:true
     }

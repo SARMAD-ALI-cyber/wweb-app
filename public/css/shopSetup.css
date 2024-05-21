@@ -9,7 +9,11 @@ body {
     flex-direction: column;
     margin-top: -80px;
 }
-
+#category{
+  width: 200px;
+  height: 40px;
+  margin-bottom: 5px;
+}
 .logo {
     margin-top: 24rem;
     mix-blend-mode: multiply;

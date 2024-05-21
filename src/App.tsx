@@ -1,4 +1,5 @@
 import ListGroup from "./components/ListGroup";
+import {ContactUs} from  "./components/Contact"
 import { FoodCard } from "./components/MyMenu";
 import { NavBar } from "./components/NavBar";
 import EditMenu from "./components/EditMenu";
@@ -58,6 +59,7 @@ function App() {
             }
           />
           <Route path="/edit-menu" element={<EditMenu />} />
+          <Route path="/contact" element={<ContactUs/>}></Route>
         </Routes>
       </Fragment>
     </Router>

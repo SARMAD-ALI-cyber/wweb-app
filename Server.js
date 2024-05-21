@@ -38,6 +38,7 @@ app.post('/api/userName', (req,res) => {
   console.log(username)
   
 })
+
 app.post('/api/tempuserName',async (req,res) => {
   username = req.body;
   console.log(username)
@@ -130,10 +131,10 @@ app.get('/api/customers', async (req, res) => {
 // Define POST route to add a new mart
 app.post('/api/marts',upload.single('image'), async (req, res) => {
   try {
-    const { userName, email, password, city } = req.body;
+    const { userName, email, password, city ,Type} = req.body;
     const image = req.file.filename;
     console.log(image)
-    const mart = new Mart({ userName, email, password,city,image:image });
+    const mart = new Mart({ userName, email, password,city,image:image,Type });
     await mart.save();
     res.status(201).json({ message: 'mart created successfully', mart });
     console.log("mart saved")
@@ -168,10 +169,10 @@ try {
 // Define POST route to add a new restaurant
 app.post('/api/restaurants', upload.single('image'), async (req, res) => {
   try {
-    const { userName, email, password, city } = req.body;
+    const { userName, email, password, city,Type } = req.body;
     const image = req.file.filename;
     console.log(image)
-    const restaurant= new Restaurant({ userName, email, password, city ,image:image});
+    const restaurant= new Restaurant({ userName, email, password, city ,image:image,Type});
     await restaurant.save();
     res.status(201).json({ message: 'restaurant created successfully', restaurant });
     console.log("restaurant saved")

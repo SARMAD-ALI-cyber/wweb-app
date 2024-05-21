@@ -43,7 +43,12 @@ async function signup() {
   var confirmPassword = document.getElementById('signupConfirmPassword').value;
   var message = document.getElementById("password-strength-message");
   var logo = document.getElementById('file').files[0]; // Get the file from the input element
-
+  var category=document.getElementById("category").value;
+  console.log(category)
+  // category.addEventListener("change", function() {
+  //  selectedValue = category.value;
+  // console.log("Selected value: " + selectedValue);
+  // });
   if (document.getElementById('toggle').checked) {
     var api = '/api/restaurants';
   } else {
@@ -90,6 +95,7 @@ async function signup() {
   formData.append('password', password);
   formData.append('city', city);
   formData.append('image', logo); // Append the file
+  formData.append('Type', category);
 
   // Send form data to the server
   try {
