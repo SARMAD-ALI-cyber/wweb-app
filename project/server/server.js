@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const { getRestaurant, extractObjectFromMongoDB,insertReview,getReviewData,getMenuData,addToCart,getCartData,deleteCartItem,deleteAllCartData} = require('./calculation.js');
+const { getRestaurant, extractObjectFromMongoDB,insertReview,getReviewData,getMenuData,addToCart,getCartData,deleteCartItem,deleteAllCartData,fetchUsername} = require('./calculation.js');
 const nodemailer = require('nodemailer');
 const twilio = require('twilio');
 
@@ -51,18 +51,19 @@ app.get('/api/restaurant',(req,res)=>{
     });
 })
 class Review1 {
-    constructor(name, rating,review) {
+    constructor(name, rating,review,username) {
       this.name = name;
       this.rating = rating;
       this.review=review;
+      this.username=username;
     }
 }
 app.post('/api/reviews',(req,res)=>{
     const data=req.body
-    console.log(get)
+    console.log(data)
 
-    const review2=new Review1(get.name,data.rating,data.review)
-    
+    const review2=new Review1(get.name,data.rating,data.review,data.username)
+    console.log("yo",review2)
     insertReview(review2)
     .then((savedReview) => {
       console.log('Insert successful:', savedReview);
@@ -89,8 +90,8 @@ app.get('/api/reviews/data',(req,res)=>{
 app.get('/api/menu',(req,res)=>{
      getMenuData(get.name)
      .then((data) => {
-      console.log(data)
-      res.json(data[0].mainMenu)
+      console.log("hello1",data)
+      res.json(data)
       
     })
     .catch((err) => {
@@ -125,7 +126,10 @@ app.post("/api/cart",(req,res)=>{
     resName:get.name,
     name:cart.name,
     price: cart.price,
-    quantity:cart.quantity
+    quantity:cart.quantity,
+    variation:cart.variation,
+    addons:cart.addons,
+    image:cart.image
 
 
   }
@@ -204,9 +208,9 @@ app.post('/api/checkout',(req,res)=>{
         <p>Your order has been placed successfully!</p>
         <h2>Order Details:</h2>
         <ul>
-          ${data.cartItems.map(item => `<li>${item.name}: $${item.price}</li>`).join('\n')}
+          ${data.cartItems.map(item => `<li>${item.name}: Rs${item.price*item.quantity}</li>`).join('\n')}
         </ul>
-        <p>Total: $${data.cartItems.reduce((total, item) => total + item.price, 0)}</p>
+        <p>Total: RS${data.cartItems.reduce((total, item) => total + item.price*item.quantity+100, 0)}</p>
         <p>Payment Method: ${data.paymentMethod} </p>
         <p>Shipping Address: ${data.address}</p>
         <p>Thank you for shopping with us!</p>
@@ -240,6 +244,18 @@ app.post("/api/location",(req,res)=>{
 app.get("/api/location/get",(req,res)=>{
 
   res.json(location)
+})
+app.get("/api/usernane",(req,res)=>{
+  fetchUsername()
+  .then((data1) => {
+    console.log("arigato28",data1)
+    res.json(data1)
+    console.log(' Username fetched:', data1);
+    
+  })
+  .catch((error) => {
+    console.error('Username failed:', error);
+  });
 })
 
 

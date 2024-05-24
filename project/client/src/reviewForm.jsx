@@ -12,15 +12,30 @@ function ReviewForm() {
   const [rating, setRating] = useState(0);
   const [lgShow, setLgShow] = useState(false);
   const [reviewText, setReviewText] = useState("");
+  const [username, setUsername] = useState(""); // State to store the username
 
   useEffect(() => {
     setLgShow(true);
+    fetchUsername();
   }, []);
 
   const ratingChanged = (newRating) => {
     setRating(newRating);
   };
-
+  const fetchUsername = async () => {
+    try {
+      const response = await fetch("/api/usernane"); // Fetch username from backend
+      if (!response.ok) {
+        throw new Error("Failed to fetch username");
+      }
+      const data = await response.json();
+      setUsername(data[0].username);
+      console.log(data)
+    } catch (error) {
+      console.error("Error fetching username:", error);
+    }
+  };
+  
   const handleSubmit = async () => {
     try {
       // Make a POST request to your backend using fetch
@@ -34,6 +49,7 @@ function ReviewForm() {
             
           rating: rating,
           review: reviewText,
+          username:username
         }),
       });
 

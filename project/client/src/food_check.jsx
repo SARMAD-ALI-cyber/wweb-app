@@ -24,6 +24,7 @@ function Food() {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
+        console.log(data)
         setFoodData(data);
       } catch (error) {
         console.error('Error fetching food data:', error);
@@ -44,7 +45,10 @@ function Food() {
       const cartItem = {
         name: foodData.name,
         price: foodData.price,
-        quantity: quantity
+        quantity: quantity,
+        variation: foodData.variation,
+        addons:foodData.addons,
+        image:foodData.image
       };
 
       const response = await fetch('/api/cart', {
@@ -83,13 +87,19 @@ function Food() {
         aria-labelledby="example-modal-sizes-title-lg"
       >
         <Modal.Body style={{ height: "600px", overflow: "auto" }}>
-          <img src={foodData.imageUrl || '/istockphoto-1442417585-612x612.jpg'} style={{ width: "100%", height: "400px" }} alt="Food"/>
+          <img src={foodData.image || '/istockphoto-1442417585-612x612.jpg'} style={{ width: "100%", height: "400px" }} alt="Food"/>
           <h1>{foodData.name || 'Pizza'}</h1>
           <p>{foodData.description || 'Description'}</p>
           <h4>{foodData.price ? `PKR ${foodData.price}` : 'Price'}</h4>
-          <Alert key={"info"} variant={"info"}>
-            Variations:
-          </Alert>
+          <h1>Variation</h1>
+          <Alert variant="info">
+              {foodData.variation}
+            </Alert>
+            <h1>Add Ons</h1>
+            <Alert  variant="info">
+              {foodData.addons}
+            </Alert>
+          
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
             <Form.Label>Specifications:</Form.Label>
             <Form.Control as="textarea" rows={3} defaultValue={foodData.specifications} />

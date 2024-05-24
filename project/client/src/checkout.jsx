@@ -130,7 +130,7 @@ function Checkout() {
                         <hr className="my-4" />
                         <MDBRow className="mb-4 d-flex justify-content-between align-items-center">
                           <MDBCol md="2" lg="2" xl="2">
-                            <MDBCardImage src="/" fluid className="rounded-3" alt={item.name} />
+                            <MDBCardImage src={item.image} fluid className="rounded-3" alt={item.name} />
                           </MDBCol>
                           <MDBCol md="3" lg="3" xl="3">
                             <MDBTypography tag="h6" className="text-muted">{item.resName}</MDBTypography>

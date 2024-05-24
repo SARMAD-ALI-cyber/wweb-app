@@ -50,7 +50,7 @@ function Body() {
       const locationData = await fetchLocationData();
       console.log('Location data:', locationData);
       console.log(generalData)
-      const cityFilteredData = generalData.filter(item => item.City === locationData.city);
+      const cityFilteredData = generalData.filter(item => item.city === locationData.city);
       extractTypes(cityFilteredData)
       console.log('Filtered data based on city:', cityFilteredData);
        setData(cityFilteredData)
@@ -111,21 +111,28 @@ function Body() {
   return (
     <div>
       
-      <div className="imageContainer">
+      <div style={{ position: "relative", width: "100%", height: "600px" }}>
   <img
     src="/pngtree-food-seasoning-food-banner-image_169169.jpg"
     className="imagePlacement"
     alt="Responsive image"
-    style={{height:"600px",width:"100%",position:"relative",left:"0px"}}
+    style={{ width: "100%", height: "100%", objectFit: "cover" }}
   />
+  <div style={{ position: "absolute", top: "150px", left: "10px", zIndex: 1, padding: "20px", color: "white" }}>
+    <h1 style={{ fontSize: "3em" }}>Cheetah Restaurant</h1>
+    <p style={{ fontSize: "1.5em" }}>Here You can place order from our restaurants associated with us </p>
+    <p style={{ fontSize: "1.5em" }}>With our riders making sure That you Dont Stay hungry for Long</p>
+
+  </div>
 </div>
+
       <div style={{ display: "flex" }}>
         
         <div className="card1 col-9 offset-1">
           <Search />
           { types.map(type => (
             <React.Fragment key={type}>
-              <h1>Some Tasty {type} to try out {locationData.city} </h1>
+              <h1>Some Tasty {type} to try out in {locationData.city} </h1>
               {data.length > 0 &&<Caro data={data.filter(item => item.Type === type)} />}
             </React.Fragment>
           ))}{/* You may want to handle this case separately if data is not available */}
@@ -176,11 +183,11 @@ function Body() {
                 onChange={handleInputChange}
               >
                 <option value="">Select City</option>
-                <option value="Karachi">Karachi</option>
-                <option value="Islamabad">Islamabad</option>
-                <option value="Lahore">Lahore</option>
-                <option value="Rawalpindi">Rawalpindi</option>
-                <option value="Multan">Multan</option>
+                <option value="KARACHI">Karachi</option>
+                <option value="ISLAMABAD">Islamabad</option>
+                <option value="LAHORE">Lahore</option>
+                <option value="RAWALPINDI">Rawalpindi</option>
+                <option value="MULTAN">Multan</option>
               </Form.Select>
             </Form.Group>
           </Form>

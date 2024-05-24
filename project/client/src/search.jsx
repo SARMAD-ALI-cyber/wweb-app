@@ -54,14 +54,14 @@ function Search() {
       const data1 = data
       console.log(data1)
       
-      const sortedData = data1.filter(item => item.Name.toLowerCase().startsWith(inputValue.toLowerCase()));
+      const sortedData = data1.filter(item => item.userName.toLowerCase().startsWith(inputValue.toLowerCase()));
       
       console.log(sortedData)
       const maxItems = 6;
       const newArray = sortedData.slice(0, maxItems);
       
       const handleClick = async (name) => {
-        navigate(`/restaurant`);
+        navigate("/restaurant");
     
         const requestData = { name };
     
@@ -85,8 +85,8 @@ function Search() {
       };
     
       const elements = newArray.map((item, index) => (
-        <div key={index} onClick={() => handleClick(item.Name)} style={{ cursor: 'pointer' }}>
-          <h5>{item.Name}</h5>
+        <div key={index} onClick={() => handleClick(item.userName)} style={{ cursor: 'pointer' }}>
+          <h5>{item.userName}</h5>
           <hr />
         </div>
       ));

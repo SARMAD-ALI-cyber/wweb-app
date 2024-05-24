@@ -14,7 +14,7 @@ const insertReview = async (reviewData) => {
     console.log("Review data:", reviewData);
     
     // Check if the reviewData object is valid
-    if (!reviewData || typeof reviewData.rating !== 'number' || typeof reviewData.review !== 'string') {
+    if (!reviewData || typeof reviewData.rating !== 'number' || typeof reviewData.review !== 'string'|| typeof reviewData.username !== 'string') {
       throw new Error('Invalid review data');
     }
     
@@ -32,6 +32,11 @@ const insertReview = async (reviewData) => {
         type: String,
         required: true,
         trim: true
+      },
+      username:{
+        type:String,
+        required:true,
+        trim:true
       }
     });
     
@@ -42,7 +47,8 @@ const insertReview = async (reviewData) => {
     const review = new Review({
       name:reviewData.name,
       rating: reviewData.rating,
-      review: reviewData.review.trim() // Trim the review text here
+      review: reviewData.review.trim(),
+      username: reviewData.username
     });
     
     // Ensure the database connection is established
@@ -71,7 +77,7 @@ async function extractObjectFromMongoDB(condition) {
           Restaurant = mongoose.model('restaurants', new mongoose.Schema({}, { strict: false }));
       }
 
-      const restaurant = await Restaurant.findOne({ Name: condition.name });
+      const restaurant = await Restaurant.findOne({ userName: condition.name });
 
       if (restaurant) {
           console.log(restaurant);
@@ -107,9 +113,9 @@ async function getMenuData(nameValue){
   try {
 
     const emptySchema = new mongoose.Schema({}, { strict: false });
-    const food = mongoose.models.food || mongoose.model('food', emptySchema, 'food');
-
-    const menu = await food.find({ name: nameValue });
+    const food = mongoose.models.menus || mongoose.model('menus', emptySchema, 'menus');
+    
+    const menu = await food.find({ restaurantName: nameValue });
 
 
     return menu;
@@ -145,6 +151,18 @@ const addToCart = async (itemData) => {
       quantity: {
         type: Number,
         required: true
+      },
+      variation:{
+        type:String,
+        required:true
+      },
+      addons:{
+        type:String,
+        required:true
+      },
+      image:{
+        type:String,
+        required:true
       }
     });
     
@@ -156,7 +174,10 @@ const addToCart = async (itemData) => {
       resName:itemData.resName,
       name: itemData.name,
       price: itemData.price,
-      quantity: itemData.quantity
+      quantity: itemData.quantity,
+      variation:itemData.variation,
+      addons:itemData.addons,
+      image:itemData.image
     });
     
     // Ensure the database connection is established
@@ -232,6 +253,24 @@ async function deleteAllCartData() {
     throw error; // Optional: Throw the error for handling in the calling function
   }
 }
+async function fetchUsername() {
+  try {
+    // Define schema
+    const emptySchema = new mongoose.Schema({});
+ console.log("yo4")
+    // Define model
+    const YourModel = mongoose.models['tempusers'] || mongoose.model('tempusers', emptySchema, 'tempusers');
+
+    // Get data from database
+    const data = await YourModel.find({});
+    console.log('Data:', data);
+    // Process data here
+
+    return data
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+}
 
 
 // Example usage
@@ -252,6 +291,7 @@ module.exports = {
   addToCart:addToCart,
   getCartData:getCartData,
   deleteCartItem:deleteCartItem,
-  deleteAllCartData:deleteAllCartData
+  deleteAllCartData:deleteAllCartData,
+  fetchUsername:fetchUsername
 
 };

@@ -56,7 +56,7 @@ function Review() {
             {reviews.map((review, index) => (
               <Card key={index} className="mb-3">
                 <Card.Body>
-                  <h6>Name</h6>
+                  <h6>{review.username} </h6>
                   <ReactStars
                     count={5}
                     value={review.rating} 

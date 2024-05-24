@@ -113,6 +113,5 @@ async function signup() {
   }
   
 }
-alert('Your account has been successfully create!');
 
 

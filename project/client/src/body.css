@@ -12,3 +12,14 @@
 
 
 }
+.imagePlacement{
+background-image: url('/pngtree-food-seasoning-food-banner-image_169169.jpg');
+
+  /* Set the background size */
+  background-size: cover; /* Cover the entire container */
+  /* background-size: contain; */ /* Fit the image inside the container */
+
+  /* Set other background properties if needed */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  background-position: center; /*
+}

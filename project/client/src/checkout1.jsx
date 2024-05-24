@@ -245,11 +245,11 @@ function Checkout() {
                         <Form.Label>City</Form.Label>
                         <Form.Control as="select" name="State" value={formData.country} onChange={handleChange} className="custom-select d-block w-100" required>
                           <option value="">Choose...</option>
-                          <option>Karachi</option>
-                          <option>Islamabad</option>
-                          <option>Lahore</option>
-                          <option>Multan</option>
-                          <option>Hyderabad</option>
+                          <option>KARACHI</option>
+                          <option>ISLAMABAD</option>
+                          <option>LAHORE</option>
+                          <option>MULTAN</option>
+                          <option>HYDERABAD</option>
                         </Form.Control>
                         <Form.Control.Feedback type="invalid">{formErrors.country}</Form.Control.Feedback>
                       </Form.Group>

@@ -7,7 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./nav.css"
-import { useLocation } from 'react-router-dom';
+import { useLocation,useNavigate } from 'react-router-dom';
 import {Badge} from "react-bootstrap"
 import {useState,useEffect,useRef} from "react"
 
@@ -28,7 +28,14 @@ function NAV() {
   const prevCartItemsRef = useRef(cartItems); // To store previous state
   const [isFetching, setIsFetching] = useState(false);
   const [locationData,setLocationData]=useState([]);
+  const [username,setUsername]=useState("..loading")
+  const navigate=useNavigate();
   
+  const handleSignOut= ()=>{
+
+    window.location.href = 'http://localhost:5000/mainMenue';
+
+  }
 
    
 
@@ -40,6 +47,7 @@ function NAV() {
   useEffect(() => {
     fetchCartItems();
     fetchLocationData(); 
+    fetchUsername(); 
 
 }, []);
 console.log(cartItems)
@@ -57,6 +65,20 @@ const fetchLocationData = async () => {
       console.log('Location data:', locationData);
   } catch (error) {
       console.error('Error fetching location data:', error);
+  }
+};
+const fetchUsername = async () => {
+  try {
+    console.log('heeyaw')
+    const response = await fetch('/api/usernane'); // Update the URL to your actual endpoint
+    if (!response.ok) {
+      throw new Error('Failed to fetch username');
+    }
+    const data = await response.json();
+    console.log(data)
+    setUsername(data[0].username);
+  } catch (error) {
+    console.error('Error fetching username:', error);
   }
 };
 
@@ -99,10 +121,10 @@ const fetchCartItems = async () => {
              
              <p className="location1"><img src="/placeholder.png"/>{locationData.area+" "+locationData.city}</p>
           </div>
-           <NavDropdown title="Name" id="basic-nav-dropdown" className=" name">
+           <NavDropdown title={username} id="basic-nav-dropdown" className=" name">
               <NavDropdown.Item href="#action/3.1">Settings</NavDropdown.Item>
             
-                <Button className="btn btn-dark" style={{position:"relative",left:"15px",marginAbove:"40px"}}>Sign Out</Button>
+                <Button className="btn btn-dark" style={{position:"relative",left:"15px",marginAbove:"40px"}} onClick={handleSignOut}>Sign Out</Button>
               
               
             </NavDropdown>

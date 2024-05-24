@@ -131,6 +131,7 @@ const heading1Ref = useRef(null);
       console.error('Error fetching menu data:', error);
     }
   };
+  console.log(menuData)
   console.log(review)
   useEffect(() => {
     fetchData();
@@ -164,15 +165,11 @@ const heading1Ref = useRef(null);
   
      const renderMenuCards = () => {
     console.log("arigato8",menuData)
-    return menuData
-      .map((cat, catIndex) => (
-        
-        <div key={catIndex} >
-          <h2 ref={heading1Ref}>{cat.category}</h2> {/* Display the category name */}
+    return (
           <div className="Placement3" >
-            {cat.menu.map((menuItem, index) => (
+            {menuData.map((menuItem, index) => (
               <Card key={index} style={{ width: '18rem', margin: '1rem', cursor: 'pointer' }} onClick={() => handleclick(menuItem)}>
-                <img />
+                <img src={menuItem.image}/>
                 <Card.Body>
                   <Card.Title>{menuItem.name}</Card.Title>
                   <Card.Subtitle className="mb-2 text-muted">Price: {menuItem.price}</Card.Subtitle>
@@ -183,8 +180,7 @@ const heading1Ref = useRef(null);
               </Card>
             ))}
           </div>
-        </div>
-      ));
+    );
   };
 
 
@@ -197,8 +193,8 @@ const heading1Ref = useRef(null);
     <Card style={{ display:"flex"  }} className="placement" >
       
       <Card.Body>
-        <h1>{data.Name}</h1>
-        <h6>Address:</h6>
+        <h1>{data.userName}</h1>
+        <h6>{data.city}</h6>
         {averageRating !== null && (
         <ReactStars
           count={5}
@@ -210,9 +206,8 @@ const heading1Ref = useRef(null);
         />
       )}
         <p><a href="/restaurant/reviews">Reviews</a></p>
-        <h6>Opening Time: {data.Opening_Time}</h6>
-        <h6>Closing Time:   {data.Closing_Time}</h6>
-        <img src="/Dominos-logo.png" className="pic2"/>
+        
+        <img src={data.image} className="pic2"/>
       </Card.Body>
     </Card>
     
@@ -220,19 +215,17 @@ const heading1Ref = useRef(null);
       <Card.Header>
         <Nav variant="pills" defaultActiveKey="#first">
           
-        {menuData.map((category, index) => (
+        
              
-              <Nav.Item key={index}>
+              <Nav.Item>
                 <Nav.Link
                   onClick={(e) => {
                     e.preventDefault();
-                    scrollToHeading(heading1Ref);
                   }}
                 >
-                  {category.category}
+                  Menu
                 </Nav.Link>
               </Nav.Item>
-            ))}
           
         </Nav>
       </Card.Header>

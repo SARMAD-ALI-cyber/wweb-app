@@ -29,10 +29,10 @@ const CustomNextArrow = (props) => {
 
 function Caro(props) {
     const navigate = useNavigate(); // Initialize useNavigate hook
-
+    console.log(props)
     function CARD1(props) {
         const handleClick = async () => {
-            navigate(`/restaurant`);
+            navigate("/restaurant");
             const requestData = {
                 name: props.name,
             };
@@ -61,13 +61,12 @@ function Caro(props) {
                 className="Card"
                 onClick={handleClick}
             >
-                <Card.Img variant="top" src={props.pic} style={{border: 'solid black 1px'}}/>
+                <Card.Img variant="top" src={props.pic} style={{border: 'solid black 1px',height:"200px"}}/>
                 <Card.Body>
                     <Card.Title>{props.name}</Card.Title>
                     <p>{props.Type}</p>
                     <Card.Text style={{display: 'flex'}}>
-                        <p>Opening Time: {props.time}</p>
-                        <p>Delivery: {props.delivery}</p>
+                       
                     </Card.Text>
                 </Card.Body>
             </Card>
@@ -75,6 +74,7 @@ function Caro(props) {
     }
 
     const data1 = props.data;
+    console.log(data1)
     const itemsCount = data1.length;
     const isSliderEnabled = itemsCount > 4;
 
@@ -95,7 +95,7 @@ function Caro(props) {
                     name={item.Name}
                     time={item.Opening_Time}
                     delivery={item.Delivery_Fee}
-                    pic={item.PIC}
+                    pic={item.image}
                     Type={item.Type}
                 />
             </div>
@@ -111,9 +111,8 @@ function Caro(props) {
             
                 <CARD1
                     key={index}
-                    name={item.Name}
-                    time={item.Opening_Time}
-                    delivery={item.Delivery_Fee}
+                    name={item.userName}
+                    pic={item.image}
                     Type={item.Type}
                 />
             
@@ -123,4 +122,4 @@ function Caro(props) {
     }
 }
 
-export default Caro;
+export default Caro; 
